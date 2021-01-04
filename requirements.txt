@@ -1,0 +1,40 @@
+# packaging
+pip>=9
+setuptools>=26
+wheel>=0.29
+
+# data science
+numpy
+pandas
+scikit-learn
+matplotlib
+
+# tests/linter
+black
+coverage
+flake8
+pytest
+yapf
+
+# API
+gcsfs
+google-cloud-storage
+mlflow
+s3fs
+
+# utilities
+six==1.13.0
+joblib
+memoized-property
+termcolor
+
+#WB/requirements
+wandb
+tensorflow==2.3.0
+ee
+keras
+
+#Streamlit
+cloud_tpu_client
+streamlit
+Pillow
