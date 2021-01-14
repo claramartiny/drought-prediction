@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # drought-prediction
 =======
+=======
+>>>>>>> 65afa87adf88ddb487f7fc2dd2c1b298e302cdd8
 # Data analysis
 - Description: This project leverages deep learning and computer vision for
 drought resilience, using satellite images and human expert labels to detect
@@ -83,5 +86,8 @@ Functionnal test with a script:
   $ cd /tmp
   $ droughtwatch-run
 ```
+<<<<<<< HEAD
 >>>>>>> origin/master
 # drought-prediction
+=======
+>>>>>>> 65afa87adf88ddb487f7fc2dd2c1b298e302cdd8
