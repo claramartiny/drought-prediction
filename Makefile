@@ -63,7 +63,7 @@ pypi:
 # ----------------------------------
 #      Google Cloud Platform
 # ----------------------------------
-BUCKET_NAME=tfrecords_data
+BUCKET_NAME=droughtwatch_data
 
 REGION=europe-west1
 
@@ -89,6 +89,13 @@ gcp_submit_training:
 		--region ${REGION} \
 		--stream-logs \
 		--master-accelerator count=4,type=nvidia-tesla-t4 \
+
+
+set_project:
+	-@gcloud config set project ${PROJECT_ID}
+
+create_bucket:
+	-@gsutil mb -l ${REGION} -p ${PROJECT_ID} gs://${BUCKET_NAME}
 
 # ----------------------------------
 #      Run API

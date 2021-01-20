@@ -25,17 +25,12 @@ from droughtwatch.utils import dataset_select_channels, save_model, holdout, exp
 from droughtwatch.params import IMG_DIM, NUM_CLASSES, SIZE, SIZE_TRAIN, SIZE_VAL, TOTAL_TRAIN, TOTAL_VAL
 
 # Set up for GCP
-BUCKET_NAME = 'tfrecords_data'
+BUCKET_NAME = 'droughtwatch_data'
 MODEL_NAME = 'model_cnn'
 MODEL_VERSION = 'model_cnn_vfinal'
 
 tf.enable_eager_execution()
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 65afa87adf88ddb487f7fc2dd2c1b298e302cdd8
 # Final model: fine-tuned CNN model
 ##------------------------------------------------------------------------------------------------
 def final_model():
@@ -67,11 +62,7 @@ def final_model():
     model.add(layers.Dense(4, activation='softmax'))
 
     model.compile(loss=tf.keras.losses.categorical_crossentropy,
-<<<<<<< HEAD
-              optimizer=Adam(lr=0.00005),
-=======
               optimizer=tf.keras.optimizers.Adam(lr=0.00005),
->>>>>>> 65afa87adf88ddb487f7fc2dd2c1b298e302cdd8
               metrics=['accuracy'])
 
     return model
@@ -121,20 +112,6 @@ def baseline_model():
 ##------------------------------------------------------------------------------------------------
 ### Convert images to RGB format first using dataset_select_channels ###
 
-<<<<<<< HEAD
-def vgg16_model(X_train):
-     '''Transfer learning model that takes X_train with ['B4','B3','B2']'''
-    
-    model = VGG16(weights="imagenet", 
-                include_top=False, 
-                input_shape=X_train[0].shape)
-
-    model.compile(loss='categorical_crossentropy',
-                optimizer='adam',
-                metrics=['accuracy'])
-
-    return model
-=======
 # def vgg16_model(X_train):
 #      '''Transfer learning model that takes X_train with ['B4','B3','B2']'''
     
@@ -147,7 +124,6 @@ def vgg16_model(X_train):
 #                 metrics=['accuracy'])
 
 #     return model
->>>>>>> 65afa87adf88ddb487f7fc2dd2c1b298e302cdd8
 
 
 # Model 3: EfficientNetB3 model
@@ -224,7 +200,7 @@ def train_efficient_net(X_train, X_val, y_train, y_val):
 if __name__ == "__main__":
 
     # Load data
-    X_train_total, X_val_total, y_train_total, y_val_total = get_data(SIZE_TRAIN, SIZE_VAL, local = True)
+    X_train_total, X_val_total, y_train_total, y_val_total = get_data(SIZE_TRAIN, SIZE_VAL, local = False)
     print(colored(f"------ Data loaded ------", "green"))
 
     # Hold out
